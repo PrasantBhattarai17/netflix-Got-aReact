@@ -16,12 +16,12 @@ const Login = () => {
         </div>
         <div className='relative   mt-40 flex justify-center min-h-96 '>
             <form className='flex flex-col w-[27%]   justify-center  items-center rounded  bg-black bg-opacity-80 gap-y-4' >
-               <span className='self-start ml-24 py-2 my-2 text-3xl font-bold text-white'>Sign In</span>
+               <span className='self-start ml-20 py-2 my-2 text-3xl font-bold text-white'>Sign In</span>
                 <input className='border-white border-2 text-white rounded bg-black bg-opacity-70 h-14 p-2 m-2 w-4/6' type='text' placeholder='Enter email or mobile Number'/>
                 <input className='border-white border-2 text-white rounded  bg-black bg-opacity-70 h-14 p-2 m-2 w-4/6' type='password' placeholder='Enter password'/>
             <button  className='border-white border-1  text-white bg-[red] w-4/6 h-[50px] rounded text-lg font-bold hover:bg-red-700'>{(islogedin)?"Sign in":"Sign up"}</button>
             <span className='text-white cursor-pointer hover:underline hover:text-gray-400'>{islogedin && "Forgot password?"}</span>
-            <span className='flex items-center self-start ml-24'>
+            <span className='flex items-center self-start ml-20'>
             <input type='checkbox' className='size-5 '/>
             <span  className='text-white  font-bold text-md'>Remember me</span>
             </span>
