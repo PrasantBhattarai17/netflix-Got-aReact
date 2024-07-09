@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Browse = () => {
   return (
@@ -6,4 +6,4 @@ const Browse = () => {
   )
 }
 
-export default Browse
+export default Browse;

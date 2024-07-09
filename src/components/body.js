@@ -1,7 +1,6 @@
 import React from 'react'
 import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
-import Header from './header';
 import Login from './login';
 import Browse from './browse';
 const Body = () => {
