@@ -1,5 +1,7 @@
 import React, {  useState } from 'react';
 import { validateData } from '../utils/validate';
+import {auth} from "../utils/firebase";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
 
 
 const Login = () => {
@@ -17,6 +19,20 @@ const Login = () => {
     // handle sign-in logic here
     const signInerrorMessage= validateData(signInEmail,signInPassword);
     setSignInError(signInerrorMessage);
+    if(signInerrorMessage==null){
+      signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+    .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+     // ...
+     })
+    .catch((error) => {
+       const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode+" "+errorMessage)
+     });
+    }
 
     }
   
@@ -25,7 +41,21 @@ const Login = () => {
     // handle sign-up logic here
     const signUperrorMessage= validateData(signUpEmail,signUpPassword);
     setSignUpError(signUperrorMessage);
-    console.log(signUpEmail,signUpPassword,signUpError)
+    // console.log(signUpEmail,signUpPassword);
+    if(signUperrorMessage==null){
+      createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+    }
     
    
       };
