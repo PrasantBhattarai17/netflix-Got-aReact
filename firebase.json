@@ -1,11 +1,11 @@
 {
   "hosting": {
     "public": "build",
-      "site": "netflix-prasant",
+    "site": "netflixprasant",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ] 
+    ]
   }
 }

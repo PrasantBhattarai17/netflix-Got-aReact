@@ -1,7 +1,6 @@
 import React, {  useState } from 'react';
 import { validateData } from '../utils/validate';
-import { auth } from '../utils/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+
 
 const Login = () => {
   const [isLogedOut, setIsLogedOut] = useState(true);
@@ -28,18 +27,7 @@ const Login = () => {
     setSignUpError(signUperrorMessage);
     console.log(signUpEmail,signUpPassword,signUpError)
     
-    if (!signUperrorMessage) {
-      createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setSignUpError(`${errorCode}: ${errorMessage}`);
-        });
-    }
+   
       };
   const handleToggle = () => {
     setIsLogedOut(!isLogedOut);
