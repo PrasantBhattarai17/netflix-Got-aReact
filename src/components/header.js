@@ -1,18 +1,40 @@
 import { signOut } from 'firebase/auth';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const Header = () => {
+  const dispatch =useDispatch();
   const navigate=useNavigate();
+  const user=useSelector((store)=>store.user);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {uid , email, displayName} = user;
+        dispatch(addUser({uid:uid,emial:email,displayName:displayName}));
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+   }, []);
 
    const handleSign=()=>{
     signOut(auth).then(() => {
-    navigate("/");
+     
     }).catch((error) => {
+      navigate("/error");
     });
    };
   return (
+     <>
+
+    {user?
     <div className=' absolute   w-full top-0   bg-gradient-to-b from-black  flex  items-center justify-between '>
       <div className='flex justify-start space-x-8'>
       <img className='ml-10 p-4 size-[11%]' alt='logo' src='https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png'/>
@@ -35,7 +57,13 @@ const Header = () => {
     </div >
 
    
-    </div>
+    </div>:
+     <div className='absolute w-full top-0 z-10 bg-gradient-to-b from-black  '>
+     <img className='ml-10 p-4 size-[11%]' alt='logo' src='https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png'/>
+     
+   </div>
+  }
+  </>
   )
 }
 

@@ -2,13 +2,11 @@ import React, {  useState } from 'react';
 import { validateData } from '../utils/validate';
 import {auth} from "../utils/firebase";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router';
-import HeaderForLogin from './loginHeader';
+import Header from './header';
 
 
 
 const Login = () => {
-  const navigate=useNavigate();
   const [isLogedOut, setIsLogedOut] = useState(true);
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
@@ -28,7 +26,7 @@ const Login = () => {
     .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-     navigate("/browse");
+
      })
     .catch((error) => {
        const errorCode = error.code;
@@ -49,7 +47,6 @@ const Login = () => {
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        navigate("/browse");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -65,9 +62,9 @@ const Login = () => {
 
   return (
     <>
-    <HeaderForLogin/>
+    <Header/>
     <div className='relative flex flex-col min-h-screen'>
-      <div className='absolute inset-0'>
+      <div className='absolute inset-0 brightness-50'>
         <img
           alt='bg'
           className='object-cover h-full w-full'
