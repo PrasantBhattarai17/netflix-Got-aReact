@@ -2,9 +2,12 @@ import React, {  useState } from 'react';
 import { validateData } from '../utils/validate';
 import {auth} from "../utils/firebase";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router';
+
 
 
 const Login = () => {
+  const navigate=useNavigate();
   const [isLogedOut, setIsLogedOut] = useState(true);
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
@@ -24,8 +27,7 @@ const Login = () => {
     .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-     // ...
+     navigate("/browse");
      })
     .catch((error) => {
        const errorCode = error.code;
@@ -41,19 +43,16 @@ const Login = () => {
     // handle sign-up logic here
     const signUperrorMessage= validateData(signUpEmail,signUpPassword);
     setSignUpError(signUperrorMessage);
-    // console.log(signUpEmail,signUpPassword);
     if(signUperrorMessage==null){
       createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        console.log(user);
-        // ...
+        navigate("/browse");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
       });
     }
     
