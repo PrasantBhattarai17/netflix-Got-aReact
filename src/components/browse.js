@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from './header';
+import UseNowPlayingMovies from '../hookContents/useNowPlayingMovies';
 
 const Browse = () => {
+  UseNowPlayingMovies();
   return (
     <>
     <Header/>

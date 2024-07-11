@@ -3,6 +3,7 @@ import { validateData } from '../utils/validate';
 import {auth} from "../utils/firebase";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
 import Header from './header';
+import { BG_Login } from '../utils/constant';
 
 
 
@@ -68,7 +69,7 @@ const Login = () => {
         <img
           alt='bg'
           className='object-cover h-full w-full'
-          src='https://assets.nflxext.com/ffe/siteui/vlv3/0552717c-9d8c-47bd-9640-4f4efa2de663/ec7d4963-32a5-46e6-99ab-48d29d11b1a3/NP-en-20240701-POP_SIGNUP_TWO_WEEKS-perspective_WEB_065904e2-cb5a-4a21-8075-d1a67567f76a_large.jpg'
+          src={BG_Login}
           />
       </div>
       <div className='relative mt-40 flex justify-center min-h-96 w-full'>
