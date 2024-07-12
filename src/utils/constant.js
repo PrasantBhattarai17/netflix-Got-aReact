@@ -19,3 +19,5 @@ export const CDN_POSTER_URL="https://image.tmdb.org/t/p/w780/";
 export const UPCOMING_MOVIES_API="https://api.themoviedb.org/3/movie/upcoming";
 export const TOP_RATED_MOVIES_API="https://api.themoviedb.org/3/movie/top_rated";
 export const POPULAR_MOVIES_API="https://api.themoviedb.org/3/movie/popular";
+export const  TRENDING_API="https://api.themoviedb.org/3/trending/movie/week";
+export const TRENDING_SERIES_API="https://api.themoviedb.org/3/trending/tv/week";
