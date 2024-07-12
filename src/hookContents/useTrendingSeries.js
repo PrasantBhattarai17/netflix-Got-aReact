@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { APIoptions, TRENDING_API, TRENDING_SERIES_API} from "../utils/constant";
+import { APIoptions, TRENDING_SERIES_API} from "../utils/constant";
 import {addTrendingSeries } from "../utils/movieSlice";
 import { useEffect } from "react";
 

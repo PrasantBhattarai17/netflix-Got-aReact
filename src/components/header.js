@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Avatar_PNG, Logo } from '../utils/constant';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const dispatch =useDispatch();
@@ -41,12 +42,12 @@ const Header = () => {
       <div className='flex justify-start space-x-8'>
       <img className='ml-10 p-4 size-[11%]' alt='logo' src={Logo}/>
       <ul className='flex justify-start items-center space-x-8 '>
-        <li className='text-md text-white font-sans '>Home</li>
-        <li className='text-md text-white font-sans '>Tv shows</li>
-        <li className='text-md text-white font-sans '>Movies</li>
-        <li className='text-md text-white font-sans '>New & Popular</li>
-        <li className='text-md text-white font-sans '>My List</li>
-        <li className='text-md text-white font-sans '>Browse by Languages</li>
+       <Link to="/"> <li className='text-md text-white font-sans  '>Home</li></Link>
+       <Link to="/">  <li className='text-md text-white font-sans  '>Tv shows</li></Link>
+       <Link to="/">  <li className='text-md text-white font-sans  '>Movies</li></Link>
+       <Link to="/"> <li className='text-md text-white font-sans  '>New & Popular</li></Link>
+       <Link to="/">  <li className='text-md text-white font-sans  '>My List</li></Link>
+       <Link to="/">  <li className='text-md text-white font-sans  '>Browse by Languages</li></Link>
       </ul>
       </div>
     <div className='m-3 p-2 mr-6 flex justify-end items-center w-1/3 space-x-6'>
