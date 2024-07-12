@@ -11,3 +11,6 @@ export const APIoptions = {
     }
   };
 export const NOW_PLAYING_API="https://api.themoviedb.org/3/movie/now_playing";
+
+export const TRAILER_MOVIE_API="https://api.themoviedb.org/3/movie/";
+export const video="/videos";
