@@ -14,3 +14,5 @@ export const NOW_PLAYING_API="https://api.themoviedb.org/3/movie/now_playing";
 
 export const TRAILER_MOVIE_API="https://api.themoviedb.org/3/movie/";
 export const video="/videos";
+
+export const CDN_POSTER_URL="https://image.tmdb.org/t/p/w780/";
