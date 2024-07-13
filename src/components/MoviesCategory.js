@@ -3,7 +3,6 @@ import MoviesCard from './MoviesCard';
 
 const MoviesCategory = ({title,movies}) => {
  if(!movies) return;
- console.log(movies)
   return (
     <div className='w-screen px-2'>
         <h1 className='m-1 p-1 font-bold text-2xl px-6'>{title}</h1>
