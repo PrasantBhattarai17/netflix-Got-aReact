@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const dispatch =useDispatch();
   const navigate=useNavigate();
+  const [dropDown,setDropDown]=useState(false);
   const user=useSelector((store)=>store.user);
 
   useEffect(() => {
@@ -26,6 +27,10 @@ const Header = () => {
     });
     return ()=>unSubscribe();
    }, []);
+
+   const handleDropDown=()=>{
+  setDropDown(!dropDown);
+   };
 
    const handleSign=()=>{
     signOut(auth).then(() => {
@@ -55,8 +60,13 @@ const Header = () => {
     <span className='text-xl text-white font-sans '>🔔</span>
     <span className='flex mr-2 p-1 space-x-1 items-center '>
       <img alt='avatar' className='w-10 h-10 rounded-sm cursor-pointer' src={Avatar_PNG}/>
-      <span onClick={handleSign} className='text-xl text-white font-sans cursor-pointer '>🔻</span>
+      <span onClick={handleDropDown} className='text-xl text-white font-sans cursor-pointer '>🔻</span>
     </span>
+    {(dropDown)&& <div className='z-20 text-white flex flex-col '>
+      <h1>Hello Demo</h1>
+      <h1 onClick={handleSign}>Log out</h1>
+    </div>
+    }
     </div >
 
    
