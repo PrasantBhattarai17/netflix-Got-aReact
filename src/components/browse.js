@@ -9,7 +9,10 @@ import usePopularMovies from '../hookContents/usePopularMovies';
 import useTrendingMovies from '../hookContents/useTrendingMovies';
 import useTrendingSeries from '../hookContents/useTrendingSeries';
 import useTrending from '../hookContents/usetrending';
+import SearchPage from './searchPage';
+import { useSelector } from 'react-redux';
 const Browse = () => {
+  const isSearch=useSelector((store)=>store.search.showSearch);
   UseNowPlayingMovies();
   useUpcomingMovies();
   useTopRatedMovies();
@@ -20,8 +23,10 @@ const Browse = () => {
   return (
     <>
     <Header/>
+    {isSearch?<SearchPage/>:<>
     <MaincContainer/>
     <SecondaryContainer/>
+    </>}
     </>
   )
 }
