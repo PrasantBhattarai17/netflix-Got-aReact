@@ -8,6 +8,7 @@ import useTopRatedMovies from '../hookContents/useTopRatedMovies';
 import usePopularMovies from '../hookContents/usePopularMovies';
 import useTrendingMovies from '../hookContents/useTrendingMovies';
 import useTrendingSeries from '../hookContents/useTrendingSeries';
+import useTrending from '../hookContents/usetrending';
 
 const Browse = () => {
   UseNowPlayingMovies();
@@ -16,6 +17,7 @@ const Browse = () => {
   usePopularMovies();
   useTrendingMovies();
   useTrendingSeries();
+  useTrending();
   return (
     <>
     <Header/>
