@@ -62,9 +62,9 @@ const Header = () => {
       <img alt='avatar' className='w-10 h-10 rounded-sm cursor-pointer' src={Avatar_PNG}/>
       <span onClick={handleDropDown} className='text-xl text-white font-sans cursor-pointer '>🔻</span>
     </span>
-    {(dropDown)&& <div className='z-20 text-white flex flex-col '>
+    {(dropDown)&& <div className='z-20  bg-red-700 rounded-md text-white flex flex-col '>
       <h1>Hello Demo</h1>
-      <h1 onClick={handleSign}>Log out</h1>
+      <h1 className='cursor-pointer' onClick={handleSign}>Log out</h1>
     </div>
     }
     </div >
