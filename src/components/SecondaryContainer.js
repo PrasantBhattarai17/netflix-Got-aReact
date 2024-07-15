@@ -9,6 +9,7 @@ const movies = useSelector((store)=>store.movies);
     <div className='bg-black w-screen'>
       <div className='relative -mt-52 z-20 text-white'>
       <MoviesCategory title={"Now Playing Movies"} movies={movies.nowPlayingMovies}/>
+      <MoviesCategory title={"Today's Trending"} movies={movies.TrendingAll}/>
       <MoviesCategory title={"Trending TV Series"} movies={movies.TrendingSeries}/>
       <MoviesCategory title={"Trending Movies"} movies={movies.TrendingMovies}/>
       <MoviesCategory title={"Upcoming Movies"} movies={movies.UpcomingMovies}/>
