@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
 import Login from './login';
 import Browse from './browse';
+import SearchPage from './searchPage';
 
 const Body = () => {
 
@@ -14,6 +15,10 @@ const Body = () => {
          {
             path:"/browse",
             element:<Browse/>
+         },
+         {
+            path:"/search",
+            element:<SearchPage/>
          }
     ])
 

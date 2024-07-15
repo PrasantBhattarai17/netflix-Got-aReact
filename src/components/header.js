@@ -12,6 +12,7 @@ const Header = () => {
   const dispatch =useDispatch();
   const navigate=useNavigate();
   const [dropDown,setDropDown]=useState(false);
+  const [isSearch,setIsSearch]=useState(false);
   const user=useSelector((store)=>store.user);
 
   useEffect(() => {
@@ -30,8 +31,15 @@ const Header = () => {
 
    const handleDropDown=()=>{
   setDropDown(!dropDown);
+  console.log(dropDown)
    };
-
+   const handleSearchToggle=()=>{
+    setIsSearch(!isSearch);
+    if(isSearch==false)
+      navigate("/search")
+    else
+    navigate("/browse")
+   };
    const handleSign=()=>{
     signOut(auth).then(() => {
      
@@ -56,7 +64,7 @@ const Header = () => {
       </ul>
       </div>
     <div className='m-3 p-2 mr-6 flex justify-end items-center w-1/3 space-x-6'>
-    <span className='text-xl text-white font-sans '>🔍</span>
+   <span onClick={()=>handleSearchToggle()} className='text-xl text-white font-sans '>🔍</span>
     <span className='text-xl text-white font-sans '>🔔</span>
     <span className='flex mr-2 p-1 space-x-1 items-center '>
       <img alt='avatar' className='w-10 h-10 rounded-sm cursor-pointer' src={Avatar_PNG}/>
