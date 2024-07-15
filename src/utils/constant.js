@@ -21,3 +21,5 @@ export const TOP_RATED_MOVIES_API="https://api.themoviedb.org/3/movie/top_rated"
 export const POPULAR_MOVIES_API="https://api.themoviedb.org/3/movie/popular";
 export const  TRENDING_API="https://api.themoviedb.org/3/trending/movie/week";
 export const TRENDING_SERIES_API="https://api.themoviedb.org/3/trending/tv/week";
+
+export const TRENDING_ALL_API="https://api.themoviedb.org/3/trending/all/day";
